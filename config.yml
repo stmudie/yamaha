@@ -1,0 +1,4 @@
+IP : 'localhost'
+port : 50000
+terminator : "\r\n"
+timeout : 3

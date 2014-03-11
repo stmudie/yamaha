@@ -1,0 +1,12 @@
+*.pyc
+*~
+*.swp
+*.komodoproject
+*.rdb
+.gitk*
+.idea/*
+.DS_Store
+# Specific local config for testing
+localconfig.py
+# virtualenv
+env/
