@@ -72,7 +72,7 @@ class yamaha:
     def __del__(self):
         self.socket.close()
 
-a = yamaha('localhost')
+a = yamaha('10.138.40.110')
 #print a.changeinput('HDMI2')
 print a.currentvol()
 print a.currentinput()

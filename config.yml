@@ -1,4 +1,4 @@
-IP : 'localhost'
+IP : '10.138.40.110'
 port : 50000
 terminator : "\r\n"
 timeout : 3
