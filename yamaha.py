@@ -2,12 +2,12 @@ import socket
 import yaml
 
 class yamaha:
-    def __init__(self, IP='', port=0):
+    def __init__(self, IP='', port=0, config='config.yml'):
     
         self.config = {'terminator' : '\r\n', 'port' : 50000, 'timeout' : 3}
     
         try:
-            stream = file('config.yml', 'r') 
+            stream = file(config, 'r') 
             self.config.update(yaml.load(stream))
             
         except IOError:
@@ -38,7 +38,10 @@ class yamaha:
     def changeinput(self, input):
         current = self.currentinput()
         if current != input:
-            return self.sendmessage('@MAIN:INP=%s' % (input,))
+            self.sendmessage('@MAIN:INP=%s' % (input,))
+            self.flush()
+            current = self.currentinput()
+            
         return current
 
     def currentinput(self):
@@ -72,8 +75,10 @@ class yamaha:
     def __del__(self):
         self.socket.close()
 
-a = yamaha('10.138.40.110')
-#print a.changeinput('HDMI2')
-print a.currentvol()
-print a.currentinput()
+if __name__ == "__main__":
+
+    a = yamaha('10.138.40.110')
+    #print a.changeinput('HDMI2')
+    print a.currentvol()
+    print a.currentinput()
 
